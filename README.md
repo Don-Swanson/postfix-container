@@ -1,4 +1,4 @@
-# postfix
+# postfix-container
 Postfix docker container (intended as a backup MX or for testing)
 
 
@@ -7,7 +7,7 @@ Postfix docker container (intended as a backup MX or for testing)
 Creates a Docker Image of Postfix. 
 The Primary intention is to use this image as a backup MX, testing email sending, or as a relay where needed.
 
-On every start, the container will re-run the transport postmap. SO if you need to change your transport maps, you just need to do a docker compose down and up. 
+On every start, the container will re-run the transport postmap. So if you need to change your transport maps, you just need to do a docker compose down and up. 
 
 
 ## Volumes
@@ -15,7 +15,7 @@ On every start, the container will re-run the transport postmap. SO if you need 
 Volumes you may want to map are:
 
 - /var/spool/postfix (Mail Queues)
-- /config (BasicConfig Files)
+- /config (Basic Config Files)
 
 Optional
 - /var/log (Log Files)
