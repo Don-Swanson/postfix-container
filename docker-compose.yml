@@ -1,7 +1,7 @@
 version: "2.1"
 services:
   postfix:
-    image: ghcr.io/don-swanson/postfix:latest
+    image: ghcr.io/don-swanson/postfix-container:latest
     container_name: postfix
     volumes:
       - ./postfix-config:/config #This path will store your configs
