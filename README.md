@@ -9,6 +9,8 @@ The Primary intention is to use this image as a backup MX, testing email sending
 
 On every start, the container will re-run the transport postmap. So if you need to change your transport maps, you just need to do a docker compose down and up. 
 
+There is a sample docker-compose.yml for your convenience.
+
 
 ## Volumes
 

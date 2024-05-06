@@ -1,6 +1,6 @@
 ARG VERSION=latest
 
-FROM debian:bullseye-slim
+FROM debian:bookworm-slim
 
 ARG VERSION
 

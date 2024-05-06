@@ -1,10 +1,14 @@
 version: "2.1"
 services:
   postfix:
-    image: ghcr.io/don-swanson/postfix:main
+    image: ghcr.io/don-swanson/postfix:latest
     container_name: postfix
     volumes:
-      - ./postfix-config:/config
+      - ./postfix-config:/config #This path will store your configs
+      - ./spool:/var/spool/postfix #This path will store your mail queue
+      #Optional
+      #- ./logs:/var/log #This path will store your logs
+      #- ./postfix:/etc/postfix #This path will store your postfix configuration
     ports:
       - 25:25
       - 587:587

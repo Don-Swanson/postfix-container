@@ -7,7 +7,7 @@ name: Docker
 
 on:
   schedule:
-    - cron: '27 4 * * 1'
+    - cron: '00 4 1,15 * *'
   push:
     branches: [ "main" ]
     # Publish semver tags as releases.
@@ -79,7 +79,7 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: Don-Swanson/postfix-container:latest
+          tags: ${{ steps.meta.outputs.tags }}, latest
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
@@ -93,7 +93,7 @@ jobs:
         if: ${{ github.event_name != 'pull_request' }}
         env:
           # https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-an-intermediate-environment-variable
-          TAGS: Don-Swanson/postfix-container:latest
+          TAGS: ${{ steps.meta.outputs.tags }}
           DIGEST: ${{ steps.build-and-push.outputs.digest }}
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
