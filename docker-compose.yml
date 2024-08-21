@@ -1,0 +1,15 @@
+version: "2.1"
+services:
+  postfix:
+    image: donswanson/postfix-container:latest
+    container_name: postfix
+    volumes:
+      - ./postfix-config:/config #This path will store your configs
+      - ./spool:/var/spool/postfix #This path will store your mail queue
+      #Optional
+      #- ./logs:/var/log #This path will store your logs
+      #- ./postfix:/etc/postfix #This path will store your postfix configuration
+    ports:
+      - 25:25
+      - 587:587
+    restart: unless-stopped
